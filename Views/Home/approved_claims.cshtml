@@ -1,0 +1,28 @@
+﻿@model IEnumerable<dynamic>
+
+<h2>Approved Claims Report</h2>
+
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Lecturer Name</th>
+            <th>Hours Worked</th>
+            <th>Hourly Rate</th>
+            <th>Final Payment</th>
+            <th>Date Approved</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var claim in Model)
+        {
+            <tr>
+                <td>@claim.LecturerName</td>
+                <td>@claim.HoursWorked</td>
+                <td>@claim.HourlyRate.ToString("C")</td>
+                <td>@claim.FinalPayment.ToString("C")</td>
+                <td>@claim.DateApproved?.ToString("yyyy-MM-dd")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

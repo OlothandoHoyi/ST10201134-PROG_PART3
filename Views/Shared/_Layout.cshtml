@@ -1,0 +1,245 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - demo_part2</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/demo_part2.styles.css" asp-append-version="true" />
+    <style>
+        /* Login container for centering and styling */
+        .login-container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 25px;
+            background-color: #e3f2fd; /* Light blue background */
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Centered login title */
+        .login-title {
+            color: #004085; /* Dark blue */
+            margin-bottom: 25px;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        /* Styling for labels */
+        label {
+            font-weight: bold;
+            color: #004085; /* Dark blue for labels */
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        /* Input fields and select dropdown */
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #90caf9; /* Light blue border */
+            border-radius: 5px;
+            background-color: #ffffff; /* White background for input fields */
+            color: #333; /* Dark text for inputs */
+        }
+
+        /* Submit button styling */
+        button {
+            background-color: #007bff; /* Blue button */
+            border: none;
+            color: white;
+            padding: 12px 20px;
+            font-size: 16px;
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+            /* Hover effect for submit button */
+            button:hover {
+                background-color: #0056b3; /* Darker blue */
+            }
+
+        /* Centering text inside the form */
+        .text-center {
+            text-align: center;
+        }
+
+        /* Form group spacing */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+            /* Label and input field alignment */
+            .form-group input,
+            .form-group select {
+                display: block;
+                width: 100%;
+                box-sizing: border-box;
+            }
+        /* Register container for centering and styling */
+        .register-container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 25px;
+            background-color: #e3f2fd; /* Light blue background */
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Centered register title */
+        .register-title {
+            color: #004085; /* Dark blue */
+            margin-bottom: 25px;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        /* Styling for labels */
+        label {
+            font-weight: bold;
+            color: #004085; /* Dark blue for labels */
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        /* Input fields and select dropdown */
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #90caf9; /* Light blue border */
+            border-radius: 5px;
+            background-color: #ffffff; /* White background for input fields */
+            color: #333; /* Dark text for inputs */
+        }
+
+        /* Submit button styling */
+        button {
+            background-color: #007bff; /* Blue button */
+            border: none;
+            color: white;
+            padding: 12px 20px;
+            font-size: 16px;
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+            /* Hover effect for submit button */
+            button:hover {
+                background-color: #0056b3; /* Darker blue */
+            }
+
+        /* Centering text inside the form */
+        .text-center {
+            text-align: center;
+        }
+
+        /* Form group spacing */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        /* Link to login page */
+        a {
+            color: #0056b3;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+            a:hover {
+                text-decoration: underline;
+            }
+        /* Dashboard container for centering and styling */
+        .dashboard-container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: #e3f2fd; /* Light blue background */
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Navigation links */
+        .dashboard-nav {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 30px;
+        }
+
+        .nav-link {
+            color: #0056b3;
+            font-weight: bold;
+            text-decoration: none;
+            padding: 10px 15px;
+            border: 1px solid #007bff;
+            border-radius: 5px;
+            background-color: #f8f9fa;
+        }
+
+            .nav-link:hover {
+                background-color: #007bff;
+                color: white;
+                transition: background-color 0.3s ease;
+            }
+
+        /* Dashboard title styling */
+        .dashboard-title {
+            color: #004085;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        /* Form control styling */
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #90caf9; /* Light blue border */
+            border-radius: 5px;
+            background-color: #ffffff;
+            color: #333;
+        }
+
+        /* File input styling */
+        .form-control-file {
+            margin-top: 10px;
+        }
+
+        /* Submit button styling */
+        .submit-button {
+            background-color: #007bff;
+            border: none;
+            color: white;
+            padding: 12px 20px;
+            font-size: 16px;
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+            /* Hover effect for submit button */
+            .submit-button:hover {
+                background-color: #0056b3;
+                transition: background-color 0.3s ease;
+            }
+
+        /* Form group spacing */
+        .form-group {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+            @RenderBody()
+    

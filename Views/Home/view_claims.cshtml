@@ -1,0 +1,35 @@
+﻿@model POE_part2.Models.get_claims
+@{
+
+}
+
+<table>
+    <thead>
+        <th>User email</th>
+        <th>Module</th>
+        <th>User id</th>
+        <th>Hours worked</th>
+        <th>Hour rate</th>
+        <th>Note</th>
+        <th>Total Amount</th>
+        <th>document</th>
+        <th>Status</th>
+
+    </thead>
+
+    <tbody>
+        @for(int count =0; count < Model.email.Count; count++){
+        <tr>
+            <td>@Model.email[count]</td>
+            <td>@Model.module[count]</td>
+            <td>@Model.id[count]</td>
+            <td>@Model.hours[count]</td>
+            <td>@Model.rate[count]</td>
+            <td>@Model.note[count]</td>
+            <td>@Model.total[count]</td>
+            <td><a href="@Url.Content=~\pdf\@Model.filename[count]">@Model.filename[count]</a></td>
+            <td>@Model.status[count]</td>
+        </tr>
+        }
+    </tbody>
+</table>

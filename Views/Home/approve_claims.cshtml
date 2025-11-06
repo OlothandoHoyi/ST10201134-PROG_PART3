@@ -1,0 +1,21 @@
+﻿@model POE_part2.Models.get_claims
+@{
+
+}
+
+<div>
+    <p>Claim ID: @Model.id</p>
+    <p>Hours Worked: @Model.hours</p>
+    <p>Hourly Rate: @Model.rate</p>
+    <p>Total Payment: @Model.total</p>
+    <form asp-action="ApproveClaim" method="post">
+        <input type="hidden" name="id" value="@Model.id" />
+        <label for="isApproved">Approve:</label>
+        <input type="checkbox" name="isApproved" />
+
+        <label for="comments">Comments:</label>
+        <textarea name="comments"></textarea>
+
+        <button type="submit">Submit</button>
+    </form>
+</div>

@@ -1,0 +1,38 @@
+﻿@model POE_part2.Models.register
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <div class="register-container text-center">
+        <h2 class="register-title">Create an Account</h2>
+    <!---form register--->
+    <form method="post" asp-action="Register_user">
+
+        <label>Name: </label>
+        <input type="text" asp-for="username" required/>
+        <br/>
+        <label>Email: </label>
+        <input type="text" asp-for="email" required/>
+        <br />
+        
+        <label>Select a role: </label>
+        <select asp-for="role">
+            <option selected disabled>select a role</option>
+            <option value="lecture">Lecture</option>
+            <option value="pm">PM</option>
+        </select>
+
+        <br />
+
+        <label>Password</label>
+        <input type="text" asp-for="password" required/>
+        <br />
+        <input type="submit" value="Register now"/>
+
+
+    </form>
+    <br />
+    <a href="/Home/Login">Already have an account, Login now</a>
+</div>

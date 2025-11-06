@@ -1,0 +1,27 @@
+﻿@model POE_part2.Models.check_login
+@{
+    ViewData["Title"] = "Login Page";
+}
+<div class="text-center">
+    <div class="login-container text-center">
+        <h2 class="login-title">Welcome, Please Login</h2>
+
+    <form asp-action="login_user" method="post">
+        <label>Email</label>
+        <input type="email" asp-for="email" required/> 
+        <br/>
+        <label>Select role</label>
+        <select asp-for="role">
+            <option selected disabled>select a role here</option>
+            <option value="Lecture">Lecture</option>
+            <option value="PM">PM</option>
+        </select>
+        <br/>
+        <label>Password</label>
+        <input type="password" asp-for="Password" required/>
+        <br/>
+        <input type="submit" value="Login"/>
+
+    </form>
+
+</div>

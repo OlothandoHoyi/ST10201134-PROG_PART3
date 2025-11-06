@@ -1,0 +1,45 @@
+﻿@model POE_part2.Models.Claim
+@{
+    ViewData["Title"] = "dashboard Page";
+}
+
+<div class="dashboard-container">
+    <nav class="dashboard-nav">
+<a href="/Home/view_claims/">View claims</a>
+<a href="/Home/approve_claims/">Approve claims</a>
+</nav>
+
+<br /><br /><br />
+<form method="post" asp-action="claim_sub" enctype="multipart/form-data">
+
+    <label>Module name</label>
+    <input type="text" asp-for="user_email" required />
+    <br/>
+    <label>Hours worked</label>
+    <input type="text" asp-for="hours_worked" required />
+    <br/>
+    <label>Hours per rate on modules</label>
+    <input type="text" asp-for="hour_rate" required />
+    <br/>
+    <label>Description</label>
+    <textarea type="text" asp-for="description" required ></textarea>
+    <br/>
+    <label>Upload file[optional]</label>
+    <input type="file" name="File" accept=".pdf,.docx"/>
+
+        <label for="totalPayment">Total Payment:</label>
+        <input type="text" id="totalPayment" readonly />
+
+    <input type="submit" value="Submit claim"/>
+</form>
+
+    <script>
+//Implement an auto-calculation feature to compute the final payment based on the hours worked and hourly rate inputted by the lecturer
+        document.querySelectorAll('input').forEach(input => {
+            input.addEventListener('input', () => {
+                const hours = parseFloat(document.getElementById('hours_worked').value) || 0;
+                const rate = parseFloat(document.getElementById('hour_rate').value) || 0;
+                document.getElementById('totalPayment').value = (hours * rate).toFixed(2);
+            });
+        });
+    </script>
